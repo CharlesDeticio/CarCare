@@ -1,17 +1,16 @@
-import React from 'react';
-import { Container, Typography, Card, CardContent, CardMedia, Button, Grid, AppBar, Toolbar, TextField, Box } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
+'use client';
+import React, { useState } from 'react';
+import { Container, Typography, Grid, Box, CardMedia, Card, CardContent, IconButton, AppBar, Toolbar, TextField, Avatar, Button } from '@mui/material';
+
+import HomeIcon from '@mui/icons-material/Home';
+import EventNoteIcon from '@mui/icons-material/EventNote';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 import { deepOrange } from '@mui/material/colors';
+
 
 const logoUrl = "/assets/449769249_1217885939590873_7635439348389433262_n.png"; // Update with the correct path for your logo image
 
-const styles = {
-  appBar: {
-    backgroundColor: '#0d2a7c',
-    borderRadius: '20px 20px 20px 20px',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-  }
-};
 
 // palceholder images
 
@@ -71,49 +70,49 @@ const App = () => {
         padding: 3,
       }}
     >
-      <AppBar position="static" sx={styles.appBar}>
+      <AppBar position="static" sx={{backgroundColor: '#0d2a7c', borderRadius: '20px 20px 20px 20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',}}>
   <Toolbar>
     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
       Welcome Back, User!
     </Typography>
-    <Button
-      color="inherit"
-      sx={{
-        '&:hover': {
-          backgroundColor: '#2956de', 
-          color: '#fff',
-        },
-      }}
-    >
-      Home
-    </Button>
-    <Button
-      color="inherit"
-      sx={{
-        '&:hover': {
-          backgroundColor: '#2956de', 
-          color: '#fff',
-        },
-      }}
-    >
-      Booking
-    </Button>
-    <Button
-      color="inherit"
-      href='/cart'
-      sx={{
-        '&:hover': {
-          backgroundColor: '#2956de', 
-          color: '#fff',
-        },
-      }}
-    >
-      Cart
-    </Button>
+    <IconButton
+            color="inherit"
+            sx={{
+              '&:hover': {
+                backgroundColor: '#2956de',
+                color: '#fff',
+              },
+            }}
+          >
+            <HomeIcon />
+          </IconButton>
+          <IconButton
+            color="inherit"
+            sx={{
+              '&:hover': {
+                backgroundColor: '#2956de',
+                color: '#fff',
+              },
+            }}
+          >
+            <EventNoteIcon />
+          </IconButton>
+          <IconButton
+            color="inherit"
+            href='/cart'
+            sx={{
+              '&:hover': {
+                backgroundColor: '#2956de',
+                color: '#fff',
+              },
+            }}
+          >
+            <ShoppingCartIcon />
+          </IconButton>
     
     <TextField
       sx={{
-        ...styles.search,
+        backgroundColor: '#0d2a7c', borderRadius: '20px 20px 20px 20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         width: '200px',
         '& .MuiOutlinedInput-root': {
           '& fieldset': {
@@ -142,18 +141,6 @@ const App = () => {
 
   <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
   
-    <Button
-      color="inherit"
-      sx={{
-        '&:hover': {
-          backgroundColor: '#2956de', 
-          color: '#fff',
-        },
-      }}
-      href = "/login"
-    >
-      Logout
-    </Button>
   </Toolbar>
 </AppBar>
 
