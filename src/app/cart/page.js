@@ -25,7 +25,6 @@ function ShoppingCart() {
 
   return (
     <Box sx={{ minHeight: '100vh', backgroundColor: '#f0f0f0' }}>
-      {/* AppBar at the top */}
       <AppBar position="static" sx={{ backgroundColor: '#0d2a7c', borderRadius: '20px 20px 20px 20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -102,7 +101,7 @@ function ShoppingCart() {
         </Toolbar>
       </AppBar>
 
-      
+
       <Container sx={{ mt: 5 }}>
         <Divider sx={{ mb: 4 }} />
 

@@ -1,125 +1,109 @@
 import React from 'react';
-import { Container, Typography, Box, AppBar, Toolbar, Button, TextField, Avatar} from '@mui/material';
-import { deepOrange } from '@mui/material/colors';
-
-const styles = {
-  appBar: {
-    backgroundColor: '#1141c1',
-    borderRadius: '20px 20px 20px 20px',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-  }
-};
-
-<AppBar position="static" sx={styles.appBar}>
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Welcome Back, User!
-          </Typography>
-          <Button
-            color="inherit"
-            sx={{
-              '&:hover': {
-                backgroundColor: '#2956de', 
-                color: '#fff',
-              },
-            }}
-          >
-            Home
-          </Button>
-          <Button
-            color="inherit"
-            sx={{
-              '&:hover': {
-                backgroundColor: '#2956de', 
-                color: '#fff',
-              },
-            }}
-          >
-            Booking
-          </Button>
-          <Button
-            color="inherit"
-            sx={{
-              '&:hover': {
-                backgroundColor: '#2956de', 
-                color: '#fff',
-              },
-            }}
-          >
-            Cart
-          </Button>
-          
-          <TextField
-            sx={{
-              ...styles.search,
-              width: '200px',
-              '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderColor: 'white',
-                },
-                '&:hover fieldset': {
-                  borderColor: 'white',
-                },
-                '&.Mui-focused fieldset': {
-                  borderColor: 'white',
-                },
-              },
-              '& .MuiInputLabel-root': {
-                color: 'white',
-              },
-              '& .MuiInputBase-input': {
-                color: 'black',
-                fontSize: '0.7rem',
-              },
-            paddingRight: 2}}
-            label="Search"
-            variant="outlined"
-            size="small"
-            placeholder="Search here..."
-          />
-      
-        <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
-        
-          <Button
-            color="inherit"
-            sx={{
-              '&:hover': {
-                backgroundColor: '#2956de', 
-                color: '#fff',
-              },
-            }}
-            href = "/login"
-          >
-            Logout
-          </Button>
-        </Toolbar>
-      </AppBar>
-
+import { Container, Typography, Box, Grid, Card, CardContent, IconButton } from '@mui/material';
+import CarRepairIcon from '@mui/icons-material/CarRepair';
+import BuildIcon from '@mui/icons-material/Build';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
 const AboutPage = () => {
   return (
-    <Container sx={{ minHeight: '100vh', padding: 4 }}>
-      <Typography variant="h3" align="center" gutterBottom>
-        About CarCare
-      </Typography>
-
-      <Typography variant="h5" gutterBottom>
-        What We Do
-      </Typography>
-      <Typography variant="body1" paragraph>
-        Our platform allows you to book appointments with qualified mechanics for a wide range of services. Whether you need a quick oil change, a thorough inspection, or major repairs, CarCare has you covered. Our network of skilled professionals is dedicated to providing high-quality service and ensuring your car is in top condition.
-      </Typography>
-
-
-      <Box sx={{ marginTop: 4 }}>
-        <Typography variant="h5" gutterBottom>
-          Contact Us
-        </Typography>
-        <Typography variant="body1">
-          Have questions or need support? Reach out to us at <a href="">support@carcare.com</a>. We're here to help!
-        </Typography>
+    <Box sx={{ backgroundColor: '#f5f5f5', minHeight: '100vh', paddingTop: 3 }}>
+      {/* Hero Section */}
+      <Box
+        sx={{
+          backgroundColor: '#1141c1',
+          color: 'white',
+          padding: '80px 0',
+          textAlign: 'center',
+        }}
+      >
+        <Container>
+          <Typography variant="h2" gutterBottom>
+            About CarCare
+          </Typography>
+          <Typography variant="h5" paragraph>
+            Learn more about who we are and what drives us to deliver the best car maintenance experience.
+          </Typography>
+        </Container>
       </Box>
-    </Container>
+
+      {/* Company Mission Section */}
+      <Container sx={{ padding: '40px 0' }}>
+        <Typography variant="h4" gutterBottom align="center">
+          Our Mission
+        </Typography>
+        <Typography variant="body1" align="center" paragraph>
+          At CarCare, we believe in providing quality, convenience, and transparency when it comes to your car repair
+          needs. Our mission is to ensure every vehicle gets back on the road safely and efficiently. With skilled
+          mechanics and an easy booking process, we aim to revolutionize the car maintenance industry.
+        </Typography>
+      </Container>
+
+      {/* What We Offer Section */}
+      <Container sx={{ padding: '40px 0' }}>
+        <Typography variant="h4" gutterBottom align="center">
+          What We Offer
+        </Typography>
+        <Grid container spacing={4} justifyContent="center">
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ height: '100%', boxShadow: 3 }}>
+              <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <IconButton color="primary" sx={{ fontSize: 60 }}>
+                  <CarRepairIcon />
+                </IconButton>
+                <Typography variant="h6" gutterBottom>
+                  Professional Mechanics
+                </Typography>
+                <Typography variant="body1" align="center">
+                  Our highly trained network of professional mechanics ensures that your car receives expert care every
+                  time.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ height: '100%', boxShadow: 3 }}>
+              <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <IconButton color="primary" sx={{ fontSize: 60 }}>
+                  <BuildIcon />
+                </IconButton>
+                <Typography variant="h6" gutterBottom>
+                  Quality Parts
+                </Typography>
+                <Typography variant="body1" align="center">
+                  We use only high-quality parts that ensure your vehicle runs smoothly and reliably.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ height: '100%', boxShadow: 3 }}>
+              <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <IconButton color="primary" sx={{ fontSize: 60 }}>
+                  <CalendarTodayIcon />
+                </IconButton>
+                <Typography variant="h6" gutterBottom>
+                  Easy Scheduling
+                </Typography>
+                <Typography variant="body1" align="center">
+                  With our easy-to-use platform, you can schedule services at a time that works for you.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
+
+      {/* Footer */}
+      <Box sx={{ backgroundColor: '#1141c1', color: 'white', padding: '20px 0' }}>
+        <Container>
+          <Typography variant="body1" align="center">
+            © 2024 CarCare. All rights reserved.
+          </Typography>
+        </Container>
+      </Box>
+    </Box>
   );
 };
 
