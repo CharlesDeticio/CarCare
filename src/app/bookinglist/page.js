@@ -1,11 +1,15 @@
 'use client';
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Box, Typography, Grid, Card, CardContent, IconButton, Avatar, Button, TextField, MenuItem, Chip } from '@mui/material';
+import { Box, Typography, Grid, Card, CardContent, IconButton, Avatar, Button, TextField, MenuItem, Chip, Drawer, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import { deepOrange } from '@mui/material/colors';
 import HomeIcon from '@mui/icons-material/Home';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import DeleteIcon from '@mui/icons-material/Delete';
+import MenuIcon from '@mui/icons-material/Menu';
+import LogoutIcon from '@mui/icons-material/Logout';
+import SettingsIcon from '@mui/icons-material/Settings';
+import BuildIcon from '@mui/icons-material/Build';
 
 const shopName = "CarCare Service Center";
 
@@ -19,9 +23,72 @@ const initialBookings = [
 
 const statusOptions = ['All', 'Pending', 'In Progress', 'Completed'];
 
+const Sidebar = ({ open, toggleSidebar }) => (
+    <Drawer
+        anchor="left"
+        open={open}
+        onClose={toggleSidebar(false)}
+        sx={{
+            '& .MuiDrawer-paper': {
+                width: 240,
+                backgroundColor: '#0d2a7c',
+                color: '#fff',
+            },
+        }}
+    >
+        <Box sx={{ textAlign: 'center', padding: 2 }}>
+            <Avatar sx={{ bgcolor: deepOrange[500], width: 56, height: 56, margin: 'auto' }}>N</Avatar>
+            <Typography variant="h6" sx={{ marginTop: 2 }}>Dashboard</Typography>
+        </Box>
+        <div />
+        <List>
+            <ListItem button>
+                <ListItemIcon sx={{ color: '#fff' }}>
+                    <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+            </ListItem>
+            <ListItem button>
+                <ListItemIcon sx={{ color: '#fff' }}>
+                    <EventNoteIcon />
+                </ListItemIcon>
+                <ListItemText primary="Bookings" />
+            </ListItem>
+            <ListItem button>
+                <ListItemIcon sx={{ color: '#fff' }}>
+                    <InventoryIcon />
+                </ListItemIcon>
+                <ListItemText primary="Inventory" />
+            </ListItem>
+            <ListItem button>
+                <ListItemIcon sx={{ color: '#fff' }}>
+                    <BuildIcon />
+                </ListItemIcon>
+                <ListItemText primary="Services" />
+            </ListItem>
+        </List>
+        <div />
+        <List>
+            <ListItem button>
+                <ListItemIcon sx={{ color: '#fff' }}>
+                    <LogoutIcon />
+                </ListItemIcon>
+                <ListItemText primary="Logout" />
+            </ListItem>
+            <ListItem button>
+                <ListItemIcon sx={{ color: '#fff' }}>
+                    <SettingsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Setting" />
+            </ListItem>
+        </List>
+    </Drawer>
+);
+
 const BookingList = () => {
     const [bookings, setBookings] = useState(initialBookings);
     const [filterStatus, setFilterStatus] = useState('All');
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const filteredBookings = filterStatus === 'All' ? bookings : bookings.filter(b => b.status === filterStatus);
 
@@ -30,27 +97,27 @@ const BookingList = () => {
         setBookings(remainingBookings);
     };
 
+    const toggleSidebar = (open) => () => {
+        setSidebarOpen(open);
+    };
+
     return (
         <Box sx={{ backgroundColor: '#f0f0f0', minHeight: '100vh', padding: 3 }}>
-            <AppBar position="static" sx={{ backgroundColor: '#0d2a7c', borderRadius: '20px 20px 20px 20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        {shopName} Dashboard
-                    </Typography>
-                    <IconButton color="inherit" sx={{ '&:hover': { backgroundColor: '#2956de', color: '#fff' } }}>
-                        <HomeIcon />
-                    </IconButton>
-                    <IconButton color="inherit" sx={{ '&:hover': { backgroundColor: '#2956de', color: '#fff' } }}>
-                        <EventNoteIcon />
-                    </IconButton>
-                    <IconButton color="inherit" href='' sx={{ '&:hover': { backgroundColor: '#2956de', color: '#fff' } }}>
-                        <InventoryIcon />
-                    </IconButton>
-                    <Avatar sx={{ bgcolor: deepOrange[500] }} href='/userprofile'>N</Avatar>
-                </Toolbar>
-            </AppBar>
+         
+            <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                onClick={toggleSidebar(true)}
+                sx={{ position: 'fixed', top: 16, left: 16 }}
+            >
+                <MenuIcon fontSize="large" />
+            </IconButton>
 
-            <Box sx={{ padding: 3 }}>
+   
+            <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
+
+            <Box sx={{ padding: 3, paddingLeft: 10 }}>
                 <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold', marginBottom: 4 }}>
                     Manage Your Bookings
                 </Typography>
@@ -72,7 +139,6 @@ const BookingList = () => {
                     </TextField>
 
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-
                         <IconButton
                             color="error"
                             onClick={handleRemoveCompleted}

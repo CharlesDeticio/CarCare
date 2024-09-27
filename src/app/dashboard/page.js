@@ -18,11 +18,13 @@ const repairShops = [
   {
     name: 'Shop1',
     description: 'Simple Shop',
-    imageUrl: '/assets/pic1.jpg'  },
+    imageUrl: '/assets/pic1.jpg'
+  },
   {
     name: 'Shop2',
     description: 'Simple Shop',
-    imageUrl: '/assets/pic2.jpg'  },
+    imageUrl: '/assets/pic2.jpg'
+  },
   {
     name: 'Shop3',
     description: 'Simple Shop',
@@ -36,8 +38,7 @@ const repairShops = [
 ];
 
 const RepairShopCard = ({ shop }) => (
-  <Card sx={{  display: 'flex', flexDirection: 'column' }}>
-    {/* Display the image */}
+  <Card sx={{ display: 'flex', flexDirection: 'column' }}>
     <CardMedia
       component="img"
       height="200"
@@ -64,102 +65,105 @@ const App = () => {
   return (
     <>
       <Box
-      sx={{
-        backgroundColor: '#f0f0f0', 
-        minHeight: '100vh', 
-        padding: 3,
-      }}
-    >
-      <AppBar position="static" sx={{backgroundColor: '#0d2a7c', borderRadius: '20px 20px 20px 20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',}}>
-  <Toolbar>
-    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-      Welcome Back, User!
-    </Typography>
-    <IconButton
-            color="inherit"
-            sx={{
-              '&:hover': {
-                backgroundColor: '#2956de',
-                color: '#fff',
-              },
-            }}
-          >
-            <HomeIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            sx={{
-              '&:hover': {
-                backgroundColor: '#2956de',
-                color: '#fff',
-              },
-            }}
-          >
-            <EventNoteIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href='/cart'
-            sx={{
-              '&:hover': {
-                backgroundColor: '#2956de',
-                color: '#fff',
-              },
-            }}
-          >
-            <ShoppingCartIcon />
-          </IconButton>
-    
-    <TextField
-      sx={{
-        backgroundColor: '#0d2a7c', borderRadius: '20px 20px 20px 20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-        width: '200px',
-        '& .MuiOutlinedInput-root': {
-          '& fieldset': {
-            borderColor: 'white',
-          },
-          '&:hover fieldset': {
-            borderColor: 'white',
-          },
-          '&.Mui-focused fieldset': {
-            borderColor: 'white',
-          },
-        },
-        '& .MuiInputLabel-root': {
-          color: 'white',
-        },
-        '& .MuiInputBase-input': {
-          color: 'black',
-          fontSize: '0.7rem',
-        },
-      paddingRight: 2}}
-      label="Search"
-      variant="outlined"
-      size="small"
-      placeholder="Search here..."
-    />
+        sx={{
+          backgroundColor: '#f0f0f0',
+          minHeight: '100vh',
+          padding: 3,
+        }}
+      >
+        <AppBar position="static" sx={{ backgroundColor: '#0d2a7c', borderRadius: '20px 20px 20px 20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', }}>
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Welcome Back, User!
+            </Typography>
+            <IconButton
+              color="inherit"
+              sx={{
+                '&:hover': {
+                  backgroundColor: '#2956de',
+                  color: '#fff',
+                },
+              }}
+            >
+              <HomeIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              sx={{
+                '&:hover': {
+                  backgroundColor: '#2956de',
+                  color: '#fff',
+                },
+              }}
+            >
+              <EventNoteIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              href='/cart'
+              sx={{
+                '&:hover': {
+                  backgroundColor: '#2956de',
+                  color: '#fff',
+                },
+              }}
+            >
+              <ShoppingCartIcon />
+            </IconButton>
 
-  <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
-  
-  </Toolbar>
-</AppBar>
+            <TextField
+              sx={{
+                backgroundColor: '#0d2a7c', borderRadius: '20px 20px 20px 20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                width: '200px',
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'white',
+                  },
+                  '&:hover fieldset': {
+                    borderColor: 'white',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: 'white',
+                  },
+                },
+                '& .MuiInputLabel-root': {
+                  color: 'white',
+                },
+                '& .MuiInputBase-input': {
+                  color: 'black',
+                  fontSize: '0.7rem',
+                },
+                paddingRight: 2
+              }}
+              label="Search"
+              variant="outlined"
+              size="small"
+              placeholder="Search here..."
+            />
 
-      <Container>
-        <Typography variant="h4" align="center" gutterBottom sx={{ marginTop: 6, marginBottom: 6, backgroundColor: '#f3f3f3', fontFamily: 'Arial',    
-                fontWeight: 'bold', }}>
-                CarCare: General Repair and Maintenance
-        </Typography>
+            <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
 
-        <Grid container spacing={3} justifyContent="">
-          {repairShops.map((shop, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-              <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <RepairShopCard shop={shop} />
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+          </Toolbar>
+        </AppBar>
+
+        <Container>
+          <Typography variant="h4" align="center" gutterBottom sx={{
+            marginTop: 6, marginBottom: 6, backgroundColor: '#f3f3f3', fontFamily: 'Arial',
+            fontWeight: 'bold',
+          }}>
+            CarCare: General Repair and Maintenance
+          </Typography>
+
+          <Grid container spacing={3} justifyContent="">
+            {repairShops.map((shop, index) => (
+              <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
+                <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <RepairShopCard shop={shop} />
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
       </Box>
     </>
   );

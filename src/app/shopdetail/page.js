@@ -9,7 +9,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import BuildIcon from '@mui/icons-material/Build';
 import { deepOrange } from '@mui/material/colors';
 
-const logoUrl = "/assets/449769249_1217885939590873_7635439348389433262_n.png"; 
+const logoUrl = "/assets/449769249_1217885939590873_7635439348389433262_n.png";
 
 const CarShopDetails = () => {
     return (

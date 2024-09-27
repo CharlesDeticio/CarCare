@@ -66,7 +66,7 @@ const BookService = () => {
                                 component="img"
                                 alt="Shop Image"
                                 height="300"
-                                image="/assets/pic1.jpg" 
+                                image="/assets/pic1.jpg"
                             />
                             <CardContent>
                                 <Typography variant="h6" color="textSecondary">
