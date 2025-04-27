@@ -1,0 +1,288 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f4f7fc;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+
+/* Sidebar toggle for small screens */
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+/* Main content */
+.main-content {
+    margin-left: 260px;
+    padding: 20px;
+    flex: 1;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content.collapsed {
+    margin-left: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+h4 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin-bottom: 20px;
+}
+
+/* Filter Section */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-container input,
+.filter-container select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.filter-container input:focus,
+.filter-container select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Table Styling */
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Buttons */
+.view-btn,
+.edit-btn,
+.delete-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.view-btn {
+    background-color: #2196F3; /* Blue */
+}
+
+.view-btn:hover {
+    background-color: #1976D2;
+}
+
+.edit-btn {
+    background-color: #FFC107; /* Amber */
+}
+
+.edit-btn:hover {
+    background-color: #FFA000;
+}
+
+.delete-btn {
+    background-color: #F44336; /* Red */
+}
+
+.delete-btn:hover {
+    background-color: #D32F2F;
+}
+
+.delete-btn:disabled {
+    background-color: #E0E0E0;
+    cursor: not-allowed;
+}
+
+/* Align action buttons properly */
+.action-buttons a,
+.action-buttons form {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.action-buttons form button {
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Order status badges */
+.order-status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.order-status.pending {
+    background-color: #ffeb3b;
+    color: #856404;
+}
+
+.order-status.completed {
+    background-color: #4caf50;
+    color: white;
+}
+
+.order-status.processing {
+    background-color: #2196f3;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        padding-top: 10px;
+    }
+
+    .sidebar h2 {
+        font-size: 20px;
+    }
+
+    .sidebar a {
+        font-size: 16px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    table th,
+    table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    h4 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        display: none;
+    }
+
+    .table-container table {
+        font-size: 12px;
+    }
+
+    .filter-container input,
+    .filter-container select {
+        flex: none;
+        width: 100%;
+    }
+}
+
+/* Dropdown styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropdown-toggle {
+    display: block;
+    padding: 15px 20px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #45a049;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #3e8e41;
+}

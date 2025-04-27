@@ -1,0 +1,242 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2980b9;
+  height: 75px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo a {
+  font-size: 28px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: 0.3s ease;
+}
+
+.menu li a:hover {
+  background-color: #1c5980;
+  border-radius: 4px;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  /* background: linear-gradient(rgba(41, 128, 185, 0.9), rgba(41, 128, 185, 0.7)), url('{{ asset('images/mechanic.jpg') }}') center/cover no-repeat;   */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: rgb(255, 255, 255);
+}
+
+.home-auth-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.home-auth-links a {
+  color: #ffffff;
+  background-color: #3f8cc0;
+  border: 2px solid #3f8cc0;
+  padding: 12px 30px;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.home-auth-links a:hover {
+  background-color: #2980b9;
+  color: #fff;
+  border-color: #fff;
+}
+
+/* About Section */
+.about-section {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.about-content {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.feature {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature i {
+  font-size: 40px;
+  color: #2980b9;
+  margin-bottom: 10px;
+}
+
+.feature h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 14px;
+}
+
+/* Scroll to top button */
+.button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2980b9;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease;
+}
+
+.button a:hover {
+  background-color: #1c5980;
+}
+
+
+/* Dropdown container inside menu */
+.menu li.dropdown {
+  position: relative;
+}
+
+/* Dropdown button */
+.menu li.dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 180px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+/* Dropdown links */
+.dropdown-menu li a {
+  color: #333;
+  padding: 12px 16px;
+  display: block;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+/* Hover on dropdown links */
+.dropdown-menu li a:hover {
+  background-color: #f2f2f2;
+  color: #2980b9;
+}
+
+/* Show the dropdown menu on hover */
+.menu li.dropdown:hover .dropdown-menu {
+  display: block;
+}
